@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kriteria;
 
 class KriteriaController extends Controller
 {
@@ -11,7 +12,9 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        //
+
+        $kriteria = kriteria::orderby('kode', 'asc')->get();
+        return view('admin.kriteria.index', compact('kriteria'));
     }
 
     /**
@@ -19,7 +22,7 @@ class KriteriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kriteria.create');
     }
 
     /**
@@ -27,7 +30,19 @@ class KriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+            'bobot' => 'required',
+        ]);
+
+        Kriteria::create([
+            'kode' => $request->kode,
+            'nama' => $request->nama,
+            'bobot' => $request->bobot,
+        ]);
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan');
     }
 
     /**
@@ -43,7 +58,8 @@ class KriteriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kriteria = kriteria::findorfail($id);
+        return view('admin.kriteria.edit', compact('kriteria'));
     }
 
     /**
@@ -51,7 +67,18 @@ class KriteriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'kode' => 'required',
+            'nama' => 'required',
+            'bobot' => 'required',
+            ]);
+            $kriteria = [
+                'kode' => $request->kode,
+                'nama' => $request->nama,
+                'bobot' => $request->bobot,
+                ];
+                Kriteria::where('id', $id)->update($kriteria);
+                return redirect()->back()->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -59,6 +86,9 @@ class KriteriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kriteria = kriteria::findorfail($id);
+        $kriteria->delete();
+
+        return redirect()->back()->with('success','Data Berhasil Dihapus');
     }
 }
