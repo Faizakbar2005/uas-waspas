@@ -42,11 +42,11 @@ class ProdukController extends Controller
 
         $produk = produk::create([
             'nama' => $request->nama,
-            'c1' => $request->C1,
-            'c2' => $request->C2,
-            'c3' => $request->C3,
-            'c4' => $request->C4,
-            'c5' => $request->C5,
+            'c1' => $request->c1,
+            'c2' => $request->c2,
+            'c3' => $request->c3,
+            'c4' => $request->c4,
+            'c5' => $request->c5,
         ]);
 
         return redirect()->back()->with('success','Data berhasil disimpan');
@@ -85,11 +85,11 @@ class ProdukController extends Controller
 
         $produk = [
             'nama' => $request->nama,
-            'c1' => $request->C1,
-            'c2' => $request->C2,
-            'c3' => $request->C3,
-            'c4' => $request->C4,
-            'c5' => $request->C5,
+            'c1' => $request->c1,
+            'c2' => $request->c2,
+            'c3' => $request->c3,
+            'c4' => $request->c4,
+            'c5' => $request->c5,
         ];
 
         produk::whereId($id)->update($produk);

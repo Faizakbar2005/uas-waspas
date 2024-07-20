@@ -19,6 +19,6 @@ class produk extends Model
         ];
     
     public function kriteria(){
-        return $this->belongTo(kriteria::class, 'kriteria_id', 'id');
+        return $this->belongsTo(kriteria::class, 'kriteria_id', 'id');
     }
 }
