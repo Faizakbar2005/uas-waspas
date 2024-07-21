@@ -69,7 +69,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h5 class="m-0 font-weight-bold text-primary">Produk</h5>
+        <h5 class="m-0 font-weight-bold text-primary">Menghitung Nilai Qi</h5>
     </div>
     <div class="card-body">
         <table class="table table-bordered" id="" width="100%" cellspacing="0">

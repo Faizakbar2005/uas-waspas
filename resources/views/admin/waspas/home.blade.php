@@ -13,7 +13,7 @@
         </button>
         <div class="collapse mt-3" id="penjelasanProyek">
             <div class="card card-body">
-                <p class="font-weight-bold">
+                <p class="font-weight-bold"style="text-align: justify;">
                 Projek ini merupakan projek Ujian Akhir Semester oleh Kelompok 1. Proyek ini menggunakan metode WASPAS (Weighted Aggregated Sum Product Assessment) untuk mengevaluasi dan merangking alternatif berdasarkan berbagai kriteria. Metode WASPAS menggabungkan Model Jumlah Tertimbang (WSM) dan Model Produk Tertimbang (WPM) untuk mencapai proses pengambilan keputusan yang lebih akurat dan andal. Dalam proyek ini, kami menganalisis berbagai alternatif, menghitung nilai tertimbang mereka berdasarkan kriteria yang telah ditentukan, dan merangking mereka untuk menentukan pilihan terbaik.
                 </p>
             </div>
@@ -69,9 +69,7 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>WSM</th>
-                        <th>WPM</th>
-                        <th>Qi</th>
+                        <th>Nilai Qi</th>
                         <th>Ranking</th>
                     </tr>
                 </thead>
@@ -79,8 +77,6 @@
                     @foreach ($rankingData as $index => $item)
                     <tr>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->wsm }}</td>
-                        <td>{{ $item->wpm }}</td>
                         <td>{{ $item->qi }}</td>
                         <td>{{ $index + 1 }}</td>
                     </tr>
