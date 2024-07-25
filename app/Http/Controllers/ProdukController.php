@@ -33,11 +33,11 @@ class ProdukController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'C1' => 'required',
-            'C2' => 'required',
-            'C3' => 'required',
-            'C4' => 'required',
-            'C5' => 'required',
+            'c1' => 'required',
+            'c2' => 'required',
+            'c3' => 'required',
+            'c4' => 'required',
+            'c5' => 'required',
         ]);
 
         $produk = produk::create([
@@ -76,11 +76,11 @@ class ProdukController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'C1' => 'required',
-            'C2' => 'required',
-            'C3' => 'required',
-            'C4' => 'required',
-            'C5' => 'required',
+            'c1' => 'required',
+            'c2' => 'required',
+            'c3' => 'required',
+            'c4' => 'required',
+            'c5' => 'required',
         ]);
 
         $produk = [

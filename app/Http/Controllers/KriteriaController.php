@@ -36,6 +36,12 @@ class KriteriaController extends Controller
             'bobot' => 'required',
         ]);
 
+        $totalKriteria = Kriteria::count();
+        
+        if ($totalKriteria >= 5) {
+            return redirect()->back()->withErrors(['Kriteria sudah mencapai batas maksimum (5)'])->withInput();
+        }
+
         Kriteria::create([
             'kode' => $request->kode,
             'nama' => $request->nama,
@@ -78,7 +84,7 @@ class KriteriaController extends Controller
                 'bobot' => $request->bobot,
                 ];
                 Kriteria::where('id', $id)->update($kriteria);
-                return redirect()->back()->with('success', 'Data berhasil diubah');
+                return redirect()->route('kriteria.index')->with('success', 'Data berhasil diubah.');
     }
 
     /**

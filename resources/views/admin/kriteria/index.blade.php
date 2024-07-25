@@ -28,7 +28,7 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $item->kode }}</td>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->bobot }}</td>
+                        <td>{{ $item->bobot }} %</td>
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('kriteria.edit', $item->id) }}" class="btn btn-success btn-sm mr-1">

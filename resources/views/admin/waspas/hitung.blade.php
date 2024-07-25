@@ -50,19 +50,21 @@
         <h5 class="m-0 font-weight-bold text-primary">Bobot</h5>
     </div>
     <div class="card-body">
-        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+        <table class="table table-bordered" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>{{ $widget1['kriterias'] }}</th>
-                    <th>{{ $widget2['kriterias'] }}</th>
-                    <th>{{ $widget3['kriterias'] }}</th>
-                    <th>{{ $widget4['kriterias'] }}</th>
-                    <th>{{ $widget5['kriterias'] }}</th>
+                    @foreach ($kriteria as $item)
+                    <th>{{ $item->bobot }} %</th>
+                    @endforeach
                 </tr>
             </thead>
+            <tbody>
+                <!-- Data rows will go here if needed -->
+            </tbody>
         </table>
     </div>
 </div>
+
 
 @include('admin.waspas.normalisasi')
 

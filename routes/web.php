@@ -16,3 +16,4 @@ route::resource('kriteria',KriteriaController::class);
 route::resource('produk',ProdukController::class);
 Route::get('/hitung', [HitungController::class, 'hitung'])->name('hitung');
 
+
