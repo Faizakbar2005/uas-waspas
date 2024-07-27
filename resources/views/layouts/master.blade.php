@@ -121,7 +121,7 @@
                     <!-- Topbar Message and Quick Access -->
                     <div class="container-fluid">
                         <div class="welcome-message">
-                            Selamat Datang, {{ Auth::user()->name }}
+                            Selamat Datang di Sistem Pemilihan Ketua Kelas Terbaik, {{ Auth::user()->name }}
                         </div>
 
                         <div class="quick-access">

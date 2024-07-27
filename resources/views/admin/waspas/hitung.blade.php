@@ -89,28 +89,19 @@
                     // Buat array untuk menyimpan nilai WSM dan WPM beserta nama produk
                     $results = [];
                     foreach ($data as $item) {
-                        $wsm = (($item->c1 / $c1max['produks']) * $widget1['kriterias']) +
+                        $wsm = (((($item->c1 / $c1max['produks']) * $widget1['kriterias']) +
                                (($item->c2 / $c2max['produks']) * $widget2['kriterias']) +
                                (($item->c3 / $c3max['produks']) * $widget3['kriterias']) +
                                (($item->c4 / $c4max['produks']) * $widget4['kriterias']) +
-                               (($item->c5 / $c5max['produks']) * $widget5['kriterias']);
+                               (($item->c5 / $c5max['produks']) * $widget5['kriterias'])) * 0.5);
 
-                        $wpm = (pow($item->c1 / $c1max['produks'], $widget1['kriterias'])) *
-                               (pow($item->c2 / $c2max['produks'], $widget2['kriterias'])) *
-                               (pow($item->c3 / $c3max['produks'], $widget3['kriterias'])) *
-                               (pow($item->c4 / $c4max['produks'], $widget4['kriterias'])) *
-                               (pow($item->c5 / $c5max['produks'], $widget5['kriterias']));
-
-                        $qi = (((($item->c1 / $c1max['produks']) * $widget1['kriterias']) +
-                               (($item->c2 / $c2max['produks']) * $widget2['kriterias']) +
-                               (($item->c3 / $c3max['produks']) * $widget3['kriterias']) +
-                               (($item->c4 / $c4max['produks']) * $widget4['kriterias']) +
-                               (($item->c5 / $c5max['produks']) * $widget5['kriterias'])) * 0.5) +
-                              ((pow($item->c1 / $c1max['produks'], $widget1['kriterias'])) *
+                        $wpm = ((pow($item->c1 / $c1max['produks'], $widget1['kriterias'])) *
                                (pow($item->c2 / $c2max['produks'], $widget2['kriterias'])) *
                                (pow($item->c3 / $c3max['produks'], $widget3['kriterias'])) *
                                (pow($item->c4 / $c4max['produks'], $widget4['kriterias'])) *
                                (pow($item->c5 / $c5max['produks'], $widget5['kriterias'])) * 0.5);
+
+                               $qi = $wsm + $wpm;
 
                         $results[] = [
                             'nama' => $item->nama,
